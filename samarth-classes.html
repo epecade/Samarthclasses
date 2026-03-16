@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Samarth Classes – Shaping Young Minds for a Bright Future</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F5C; --navy2:#1A3080; --gold:#C8880F; --gold2:#E8B84B;
+  --goldp:#FEF5DC; --cream:#FFFDF6; --white:#fff; --text:#1C1F2E;
+  --muted:#5A6278; --border:#E8E4D9; --green:#16A34A; --red:#DC2626;
+  --r:16px; --rs:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;line-height:1.7}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+input,select,textarea,button{font-family:inherit}
+
+/* ── SCROLL ANIMATIONS ── */
+.sa{opacity:0;transform:translateY(22px);will-change:opacity,transform;transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.sa-l{opacity:0;transform:translateX(-22px);will-change:opacity,transform;transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.sa-r{opacity:0;transform:translateX(22px);will-change:opacity,transform;transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.sa-s{opacity:0;transform:scale(.94);will-change:opacity,transform;transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.sa.v,.sa-l.v,.sa-r.v,.sa-s.v{opacity:1;transform:none}
+.d1{transition-delay:.06s}.d2{transition-delay:.13s}.d3{transition-delay:.2s}
+.d4{transition-delay:.27s}.d5{transition-delay:.34s}.d6{transition-delay:.41s}
+
+/* ── LAYOUT ── */
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+.section{padding:108px 0}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.tag::before{content:'';width:26px;height:2px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.heading{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.1rem);font-weight:800;line-height:1.18;color:var(--navy);margin-bottom:18px}
+.heading em{font-style:italic;color:var(--gold)}
+.subtext{font-size:1.04rem;color:var(--muted);max-width:520px;line-height:1.82;margin-bottom:52px}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:50px;font-size:.94rem;font-weight:700;border:2px solid transparent;transition:all .3s ease;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-gold:hover{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateY(-2px);box-shadow:0 10px 28px rgba(11,29,81,.22)}
+.btn-navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-navy:hover{background:var(--gold);border-color:var(--gold);color:var(--navy);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+/* ━━━━━━━━━━━━━━━━━━
+   NAVBAR
+━━━━━━━━━━━━━━━━━━ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:21px 0;transition:all .35s ease}
+.navbar.sc{background:#fff;padding:13px 0;box-shadow:0 4px 30px rgba(15,31,92,.09)}
+.nav-in{max-width:1160px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;overflow:visible}
+.nav-logo{display:flex;align-items:center;gap:11px;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:800;color:#fff;transition:.3s}
+.navbar.sc .nav-logo{color:var(--navy)}
+.lsq{width:40px;height:40px;background:var(--gold);color:var(--navy);border-radius:10px;display:grid;place-items:center;font-size:.92rem;font-weight:900;font-family:'Playfair Display',serif;flex-shrink:0}
+.nav-ul{display:flex;align-items:center;gap:28px;overflow:visible}
+.nav-ul a{font-size:.86rem;font-weight:600;color:rgba(255,255,255,.78);transition:all .25s;position:relative;padding-bottom:2px}
+.nav-ul a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);border-radius:1px;transform:scaleX(0);transform-origin:left;transition:.3s}
+.nav-ul a:hover{color:#fff}
+.nav-ul a:hover::after{transform:scaleX(1)}
+.navbar.sc .nav-ul a{color:var(--muted)}
+.navbar.sc .nav-ul a:hover{color:var(--navy)}
+.nenrol{background:var(--gold)!important;color:var(--navy)!important;padding:10px 22px!important;border-radius:50px!important;font-weight:700!important;white-space:nowrap;flex-shrink:0;display:inline-flex!important;align-items:center}
+.nenrol::after{display:none!important}
+.nenrol:hover{background:var(--navy)!important;color:#fff!important}
+.navbar.sc .nenrol{background:var(--navy)!important;color:#fff!important}
+.navbar.sc .nenrol:hover{background:var(--gold)!important;color:var(--navy)!important}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hbg span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.navbar.sc .hbg span{background:var(--navy)}
+
+/* ━━━━━━━━━━━━━━━━━━
+   HERO
+━━━━━━━━━━━━━━━━━━ */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(155deg,#0F1F5C 0%,#1A3080 45%,#0A1640 100%)}
+.hc1,.hc2,.hc3{position:absolute;border-radius:50%;border:1px solid rgba(232,160,32,.14);pointer-events:none}
+.hc1{width:520px;height:520px;top:-130px;right:-130px}
+.hc2{width:320px;height:320px;bottom:50px;left:-80px;border-color:rgba(255,255,255,.05)}
+.hc3{width:220px;height:220px;top:28%;right:12%;border-color:rgba(232,160,32,.07)}
+.hglow{position:absolute;top:35%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(232,160,32,.11) 0%,transparent 68%);pointer-events:none}
+.hero-body{position:relative;z-index:2;padding:0 20px;max-width:700px}
+.hero-ring{width:126px;height:126px;margin:0 auto 26px;border-radius:26px;border:2px solid rgba(232,160,32,.38);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-ring img{width:100%;height:100%;object-fit:cover}
+.hero-fb{display:none;font-family:'Playfair Display',serif;font-size:3rem;font-weight:800;color:var(--gold)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,160,32,.14);border:1px solid rgba(232,160,32,.28);color:var(--gold2);font-size:.73rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:20px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:800;color:#fff;line-height:1.13;margin-bottom:16px}
+.hero-title span{color:var(--gold)}
+.hero-tag{font-size:clamp(.98rem,2.2vw,1.18rem);color:rgba(255,255,255,.6);margin-bottom:40px;font-style:italic;letter-spacing:.02em}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:sbounce 2s infinite}
+.hero-scroll-hint span{font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+.scl{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.28),transparent)}
+@keyframes sbounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+
+/* ━━━━━━━━━━━━━━━━━━
+   ABOUT
+━━━━━━━━━━━━━━━━━━ */
+.about-sec{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:12px}
+.about-text p{color:var(--muted);font-size:1.04rem;line-height:1.85;margin-bottom:22px}
+.about-text strong{color:var(--navy)}
+.about-text em{color:var(--gold);font-style:normal;font-weight:600}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stile{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:28px 20px;text-align:center;transition:all .35s ease;cursor:default;position:relative;overflow:hidden}
+.stile::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:.35s}
+.stile:hover{background:var(--navy);transform:translateY(-5px);box-shadow:0 16px 40px rgba(11,29,81,.16);border-color:var(--navy)}
+.stile:hover::after{transform:scaleX(1)}
+.snum{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--navy);line-height:1;margin-bottom:8px;transition:.35s}
+.stile:hover .snum{color:var(--gold)}
+.slbl{font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.05em;transition:.35s}
+.stile:hover .slbl{color:rgba(255,255,255,.58)}
+
+/* ━━━━━━━━━━━━━━━━━━
+   FACILITATORS
+━━━━━━━━━━━━━━━━━━ */
+.fac-sec{background:var(--cream)}
+.fac-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:12px}
+.fac-card{background:#fff;border-radius:var(--r);border:1px solid var(--border);overflow:hidden;transition:all .4s ease;box-shadow:0 4px 20px rgba(11,29,81,.05)}
+.fac-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(11,29,81,.13)}
+.fac-photo{height:258px;background:linear-gradient(135deg,var(--navy),var(--navy2));position:relative;overflow:hidden}
+.fac-photo img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s ease}
+.fac-card:hover .fac-photo img{transform:scale(1.05)}
+.fac-fb{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:4rem;font-weight:800;color:var(--gold)}
+.fac-stripe{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(to right,var(--gold),var(--gold2))}
+.fac-body{padding:30px}
+.fac-body h3{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:800;color:var(--navy);margin-bottom:4px}
+.fac-role{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
+.fac-body p{color:var(--muted);font-size:.95rem;line-height:1.72;margin-bottom:20px}
+.fac-pills{display:flex;flex-wrap:wrap;gap:8px}
+.fpill{background:var(--goldp);border:1px solid #F0D899;color:var(--navy);font-size:.72rem;font-weight:700;padding:5px 13px;border-radius:50px}
+
+/* ━━━━━━━━━━━━━━━━━━
+   COURSES
+━━━━━━━━━━━━━━━━━━ */
+.courses-sec{background:linear-gradient(155deg,#0F1F5C 0%,#152870 100%);position:relative;overflow:hidden}
+.courses-sec::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,.09) 0%,transparent 65%);pointer-events:none}
+.courses-sec .tag{color:var(--gold)}
+.courses-sec .heading{color:#fff}
+.courses-sec .subtext{color:rgba(255,255,255,.52)}
+.c-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:12px}
+.ccard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--r);padding:30px 22px;transition:all .4s ease;position:relative;overflow:hidden}
+.ccard-glow{position:absolute;top:-60px;right:-60px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,.1) 0%,transparent 70%);pointer-events:none;opacity:0;transition:.4s}
+.ccard:hover{background:rgba(255,255,255,.09);border-color:rgba(232,160,32,.38);transform:translateY(-7px);box-shadow:0 24px 50px rgba(0,0,0,.28)}
+.ccard:hover .ccard-glow{opacity:1}
+.cbadge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(232,160,32,.12);border:1px solid rgba(232,160,32,.24);padding:4px 12px;border-radius:50px;margin-bottom:18px}
+.cicon{font-size:2rem;margin-bottom:13px}
+.ccard h3{font-family:'Playfair Display',serif;font-size:1.42rem;font-weight:800;color:#fff;margin-bottom:10px}
+.ccard>p{color:rgba(255,255,255,.5);font-size:.87rem;line-height:1.7;margin-bottom:18px}
+.clist{margin-bottom:22px}
+.clist li{color:rgba(255,255,255,.58);font-size:.86rem;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:9px}
+.clist li::before{content:'✓';color:var(--gold);font-weight:800;font-size:.75rem;flex-shrink:0}
+.clink{font-size:.86rem;font-weight:700;color:var(--gold);display:inline-flex;align-items:center;gap:5px;transition:.25s}
+.clink:hover{gap:9px}
+
+/* ━━━━━━━━━━━━━━━━━━
+   WHY
+━━━━━━━━━━━━━━━━━━ */
+.why-sec{background:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:12px}
+.wcard{padding:32px 28px;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);transition:all .35s ease;position:relative;overflow:hidden}
+.wcard::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--gold);transform:scaleY(0);transition:.35s;transform-origin:bottom}
+.wcard:hover{background:var(--navy);border-color:var(--navy);transform:translateY(-6px);box-shadow:0 20px 50px rgba(11,29,81,.16)}
+.wcard:hover::before{transform:scaleY(1)}
+.wicon{font-size:2rem;margin-bottom:15px;display:block}
+.wcard h4{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:800;color:var(--navy);margin-bottom:9px;transition:.35s}
+.wcard:hover h4{color:var(--gold)}
+.wcard p{font-size:.91rem;color:var(--muted);line-height:1.72;transition:.35s}
+.wcard:hover p{color:rgba(255,255,255,.62)}
+
+/* ━━━━━━━━━━━━━━━━━━
+   METHODOLOGY
+━━━━━━━━━━━━━━━━━━ */
+.method-sec{background:var(--goldp);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.mwrap{display:grid;grid-template-columns:1.15fr 1fr;gap:70px;align-items:start}
+.mwrap>div:first-child>p{color:var(--muted);font-size:1.03rem;margin-bottom:34px}
+.mlist{display:flex;flex-direction:column;gap:24px}
+.mitem{display:flex;gap:17px;align-items:flex-start}
+.mibox{width:47px;height:47px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);display:grid;place-items:center;font-size:1.3rem;flex-shrink:0;transition:.3s}
+.mitem:hover .mibox{background:var(--navy);border-color:var(--navy)}
+.mitem h5{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:3px}
+.mitem p{font-size:.9rem;color:var(--muted);line-height:1.65}
+.aim-box{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:36px 32px;box-shadow:0 10px 40px rgba(11,29,81,.07);position:sticky;top:100px}
+.aim-h{font-family:'Playfair Display',serif;font-size:1.48rem;font-weight:800;color:var(--navy);margin-bottom:14px;padding-bottom:14px;border-bottom:3px solid var(--gold)}
+.aim-p{font-size:.96rem;color:var(--muted);line-height:1.82;margin-bottom:26px;font-style:italic}
+.aim-pills{display:flex;gap:11px}
+.apill{flex:1;text-align:center;background:var(--goldp);border:1px solid #F0D899;border-radius:var(--rs);padding:15px 10px;font-size:.79rem;font-weight:700;color:var(--navy)}
+.apill span{display:block;font-size:1.4rem;margin-bottom:5px}
+
+/* ━━━━━━━━━━━━━━━━━━
+   MATERIAL
+━━━━━━━━━━━━━━━━━━ */
+.mat-sec{background:var(--cream)}
+.mat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:12px}
+.mcard{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:36px 22px;text-align:center;transition:all .35s ease;position:relative;overflow:hidden}
+.mcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold),var(--gold2));transform:scaleX(0);transition:.35s}
+.mcard:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(11,29,81,.09);border-color:var(--gold)}
+.mcard:hover::after{transform:scaleX(1)}
+.micon{font-size:2.4rem;margin-bottom:15px}
+.mcard h4{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:800;color:var(--navy);margin-bottom:9px}
+.mcard p{font-size:.9rem;color:var(--muted);line-height:1.65}
+
+/* ━━━━━━━━━━━━━━━━━━
+   ACHIEVEMENTS — FIXED
+━━━━━━━━━━━━━━━━━━ */
+.ach-sec{background:linear-gradient(150deg,#0F1F5C 0%,#1A3280 100%);padding:90px 0;position:relative;overflow:hidden}
+.ach-sec::before{content:'';position:absolute;bottom:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,.08) 0%,transparent 65%);pointer-events:none}
+.ach-sec .tag{color:var(--gold)}
+.ach-sec .heading{color:#fff}
+.ach-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;margin-top:18px}
+/* ✅ Fully opaque white text — no more visibility issues */
+.ach-text p{color:#FFFFFF;font-size:1.06rem;line-height:1.88;margin-bottom:20px;font-weight:400}
+.ach-badges{display:flex;flex-direction:column;gap:16px}
+.abadge{background:rgba(255,255,255,.07);border:1px solid rgba(232,160,32,.22);border-radius:var(--r);padding:20px 26px;display:flex;align-items:center;gap:20px;transition:all .35s ease}
+.abadge:hover{background:rgba(232,160,32,.11);border-color:var(--gold);transform:translateX(6px)}
+.anum{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:var(--gold);line-height:1;min-width:76px}
+.albl{font-size:.94rem;font-weight:600;color:#FFFFFF}
+
+/* ━━━━━━━━━━━━━━━━━━
+   GALLERY
+━━━━━━━━━━━━━━━━━━ */
+.gal-sec{background:#fff}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px}
+.gitem{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,var(--goldp),var(--cream));border:1px solid var(--border);cursor:pointer}
+.gitem img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block}
+.gitem:hover img{transform:scale(1.07)}
+.gph{display:none;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;color:var(--muted);font-size:.82rem;font-style:italic;text-align:center;padding:20px;gap:8px}
+.gph-icon{font-size:2rem}
+.gov{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(11,29,81,.85) 0%,transparent 100%);padding:20px 16px 15px;opacity:0;transition:.35s}
+.gitem:hover .gov{opacity:1}
+.gov span{color:#fff;font-size:.84rem;font-weight:600}
+.gal-note{margin-top:20px;text-align:center;font-size:.83rem;color:var(--muted);font-style:italic}
+
+/* ━━━━━━━━━━━━━━━━━━
+   RESULTS
+━━━━━━━━━━━━━━━━━━ */
+.res-sec{background:var(--cream)}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:12px}
+.rcard{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:28px 22px;text-align:center;transition:all .35s ease;position:relative;overflow:hidden}
+.rcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold),var(--gold2));transform:scaleX(0);transition:.35s}
+.rcard:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 18px 45px rgba(11,29,81,.09)}
+.rcard:hover::before{transform:scaleX(1)}
+.rav{width:56px;height:56px;background:var(--navy);color:var(--gold);border-radius:50%;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:800;margin:0 auto 13px}
+.rcard h4{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:3px}
+.rcls{font-size:.75rem;color:var(--muted);text-transform:uppercase;font-weight:600;letter-spacing:.05em;margin-bottom:17px}
+.rscores{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:11px}
+.rb4{font-size:.87rem;color:var(--muted)}.rb4 strong{color:var(--red)}
+.raf{font-size:.87rem}.raf strong{color:var(--green);font-size:1rem;font-weight:700}
+.rarr{color:var(--gold)}
+.rbar{height:6px;background:var(--goldp);border-radius:3px;overflow:hidden;margin-bottom:13px}
+.rfill{height:100%;background:linear-gradient(to right,var(--gold2),var(--gold));border-radius:3px;width:0;transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+.rq{font-size:.84rem;color:var(--muted);font-style:italic;line-height:1.65}
+
+/* ━━━━━━━━━━━━━━━━━━
+   TESTIMONIALS
+━━━━━━━━━━━━━━━━━━ */
+.test-sec{background:#fff}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:12px}
+.tcard{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:32px 28px;transition:all .35s ease;position:relative;overflow:hidden}
+.tcard::after{content:'"';position:absolute;top:16px;right:22px;font-family:'Playfair Display',serif;font-size:5.5rem;color:rgba(232,160,32,.17);line-height:1;pointer-events:none}
+.tcard:hover{background:var(--navy);border-color:var(--navy);transform:translateY(-6px);box-shadow:0 20px 50px rgba(11,29,81,.16)}
+.tstars{color:var(--gold);font-size:.88rem;letter-spacing:.12em;margin-bottom:14px}
+.tcard>p{color:var(--muted);font-size:.93rem;line-height:1.78;margin-bottom:22px;position:relative;z-index:1;transition:.35s}
+.tcard:hover>p{color:rgba(255,255,255,.7)}
+.tcard:hover::after{color:rgba(232,160,32,.13)}
+.tauth{display:flex;align-items:center;gap:12px}
+.tav{width:44px;height:44px;background:var(--gold);color:var(--navy);border-radius:50%;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:800;flex-shrink:0}
+.tauth strong{display:block;font-size:.93rem;color:var(--navy);transition:.35s}
+.tcard:hover .tauth strong{color:#fff}
+.tauth span{font-size:.76rem;color:var(--muted);display:block;transition:.35s}
+.tcard:hover .tauth span{color:rgba(255,255,255,.48)}
+
+/* ━━━━━━━━━━━━━━━━━━
+   FORM
+━━━━━━━━━━━━━━━━━━ */
+.adm-sec{background:linear-gradient(160deg,var(--goldp) 0%,var(--cream) 100%)}
+.form-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:52px;box-shadow:0 12px 50px rgba(11,29,81,.07);max-width:860px;margin:0 auto}
+.fsh{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:800;color:var(--navy);padding:20px 0 13px;border-bottom:2px solid var(--goldp);margin-bottom:22px;margin-top:20px;display:flex;align-items:center;gap:9px}
+.fsh:first-of-type{margin-top:0}
+.fsh::before{content:'';width:4px;height:19px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.frow{display:flex;gap:18px}
+.frow.two>*{flex:1}
+.fg{margin-bottom:18px;display:flex;flex-direction:column}
+.fg label{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:7px}
+.req{color:var(--red)}
+.fg input,.fg select,.fg textarea{border:1.5px solid var(--border);border-radius:var(--rs);padding:13px 15px;font-size:.93rem;color:var(--text);background:var(--cream);transition:.3s;outline:none;-webkit-appearance:none;appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy);background:#fff;box-shadow:0 0 0 3px rgba(11,29,81,.07)}
+.fg input.err,.fg select.err,.fg textarea.err{border-color:var(--red);background:#FFF5F5}
+.fg select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23606880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.fg textarea{resize:vertical;min-height:106px}
+.hint{font-size:.76rem;color:var(--muted);margin-top:5px;display:block}
+.chk-grp{display:flex;flex-wrap:wrap;gap:9px;padding-top:4px}
+.clbl{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:500;color:var(--muted);cursor:pointer;background:var(--cream);border:1.5px solid var(--border);padding:9px 16px;border-radius:50px;transition:all .22s ease;user-select:none;-webkit-user-select:none}
+.clbl input[type="radio"],.clbl input[type="checkbox"]{width:15px;height:15px;accent-color:var(--navy);margin:0;flex-shrink:0;cursor:pointer;pointer-events:auto}
+.clbl:hover{border-color:var(--navy);background:var(--goldp);color:var(--navy)}
+.clbl:has(input[type="radio"]:checked){border-color:var(--navy);background:var(--navy);color:#fff;font-weight:600}
+.clbl:has(input[type="checkbox"]:checked){border-color:var(--navy);background:var(--navy);color:#fff;font-weight:600}
+.cfm-wrap{margin:10px 0 26px}
+.cfm-lbl{display:flex;align-items:center;gap:10px;font-size:.87rem;color:var(--muted);font-weight:500;cursor:pointer}
+.cfm-lbl input{width:16px;height:16px;accent-color:var(--navy);flex-shrink:0}
+.fstat{margin-bottom:14px;font-size:.9rem;font-weight:600}
+.fstat.ok{color:#15803D;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--rs);padding:13px 17px}
+.fstat.er{color:#DC2626;background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--rs);padding:13px 17px}
+.subtn{width:100%;padding:16px;font-size:1rem;border:none;cursor:pointer}
+.subtn:disabled{opacity:.65;cursor:not-allowed;transform:none!important}
+
+/* ━━━━━━━━━━━━━━━━━━
+   CONTACT
+━━━━━━━━━━━━━━━━━━ */
+.ct-sec{background:#fff}
+.ct-wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.ct-info>p{color:var(--muted);margin-bottom:34px;font-size:1.02rem;line-height:1.8}
+.ct-items{display:flex;flex-direction:column;gap:17px}
+.ctitem{display:flex;gap:17px;align-items:center}
+.cticon{width:47px;height:47px;background:var(--goldp);border:1px solid #F0D899;border-radius:var(--rs);display:grid;place-items:center;font-size:1.18rem;flex-shrink:0}
+.ctitem strong{display:block;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.ctitem a{font-size:1.04rem;font-weight:700;color:var(--navy);transition:.25s}
+.ctitem a:hover{color:var(--gold)}
+.cta-box{background:var(--navy);border-radius:var(--r);padding:46px 38px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,.1) 0%,transparent 65%);pointer-events:none}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:1.95rem;font-weight:800;color:#fff;margin-bottom:11px}
+.cta-box p{color:rgba(255,255,255,.58);margin-bottom:26px;font-size:.96rem;line-height:1.7}
+.cta-box .btn-gold{width:100%;margin-bottom:11px}
+.cdiv{font-size:.74rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.12em;margin:13px 0}
+.cta-box .btn-outline{width:100%}
+
+/* ━━━━━━━━━━━━━━━━━━
+   FOOTER
+━━━━━━━━━━━━━━━━━━ */
+.footer{background:#0B1020;color:rgba(255,255,255,.48);padding:72px 0 26px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:46px;margin-bottom:50px}
+.ftlogo{display:flex;align-items:center;gap:11px;font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:15px}
+.ft-brand p{font-size:.89rem;line-height:1.75;max-width:275px}
+.ftcol h5{font-size:.73rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:17px}
+.ftcol ul{display:flex;flex-direction:column;gap:9px}
+.ftcol a,.ftcol p{font-size:.88rem;color:rgba(255,255,255,.48);transition:.25s}
+.ftcol a:hover{color:var(--gold)}
+.ftcol p{margin-bottom:7px}
+.ft-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;text-align:center;font-size:.83rem}
+
+/* ━━━━━━━━━━━━━━━━━━
+   RESPONSIVE
+━━━━━━━━━━━━━━━━━━ */
+@media(max-width:768px){
+  .section{padding:74px 0}.container{padding:0 18px}
+  .hbg{display:flex}
+  .nav-ul{position:fixed;top:0;right:-100%;width:82%;max-width:320px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:88px 28px 40px;gap:0;box-shadow:-10px 0 40px rgba(0,0,0,.13);transition:right .4s ease;z-index:999}
+  .nav-ul.open{right:0}
+  .nav-ul li{width:100%}
+  .nav-ul a{display:block;padding:13px 0;border-bottom:1px solid var(--border);color:var(--muted)!important;font-size:.97rem}
+  .nenrol{margin-top:15px;background:var(--navy)!important;color:#fff!important;border-radius:50px!important;padding:13px 22px!important;text-align:center}
+  .about-grid,.mwrap,.ach-wrap,.ct-wrap{grid-template-columns:1fr;gap:38px}
+  .fac-grid{grid-template-columns:1fr}
+  .c-grid,.mat-grid{grid-template-columns:1fr 1fr}
+  .why-grid,.test-grid{grid-template-columns:1fr}
+  .res-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr}
+  .form-card{padding:28px 18px}
+  .frow.two{flex-direction:column;gap:0}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .c-grid,.res-grid,.mat-grid,.gal-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+  .aim-pills{flex-direction:column}
+  .form-card{padding:20px 14px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="nb">
+  <div class="nav-in">
+    <a href="#home" class="nav-logo"><div class="lsq">SC</div><span>Samarth Classes</span></a>
+    <ul class="nav-ul" id="nul">
+      <li><a href="#about">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#facilitators">Educators</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#admission" class="nenrol">Enquire Now</a></li>
+    </ul>
+    <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hc1"></div><div class="hc2"></div><div class="hc3"></div>
+  <div class="hglow"></div>
+  <div class="hero-body">
+    <div class="hero-ring" id="hring">
+      <img src="logo.png" alt="Logo" id="logoImg"/>
+      <div class="hero-fb" id="logoFb">SC</div>
+    </div>
+    <div class="hero-eyebrow">✦ Quality Education · Personal Attention</div>
+    <h1 class="hero-title">Samarth <span>Classes</span></h1>
+    <p class="hero-tag">"Shaping Young Minds for a Bright Future"</p>
+    <div class="hero-btns">
+      <a href="#admission" class="btn btn-gold">Enrol Now →</a>
+      <a href="#about" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint"><span>Scroll</span><div class="scl"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-sec" id="about">
+  <div class="container">
+    <div class="tag sa">Who We Are</div>
+    <h2 class="heading sa d1">Welcome to <em>Samarth Classes</em></h2>
+    <div class="about-grid">
+      <div class="sa-l d2">
+        <p>Welcome to <strong>Samarth Classes</strong>, where learning becomes simple, engaging, and effective. Our aim is to provide quality education with personal attention so every student achieves <em>academic excellence</em> and confidence.</p>
+        <p>At Samarth Classes, we focus on <em>conceptual learning</em>, <em>regular practice</em>, and <em>continuous assessment</em> to help students perform their best in school examinations.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stile sa-s d2"><div class="snum" data-target="200" data-suf="+">200+</div><div class="slbl">Students Guided</div></div>
+        <div class="stile sa-s d3"><div class="snum" data-target="4" data-suf="">4</div><div class="slbl">Course Levels</div></div>
+        <div class="stile sa-s d4"><div class="snum" data-target="95" data-suf="%">95%</div><div class="slbl">Result Improvement</div></div>
+        <div class="stile sa-s d5"><div class="snum" data-target="10" data-suf="+">10+</div><div class="slbl">Years Experience</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITATORS -->
+<section class="section fac-sec" id="facilitators">
+  <div class="container">
+    <div class="tag sa">Our Educators</div>
+    <h2 class="heading sa d1">Learning <em>Facilitators</em></h2>
+    <p class="subtext sa d2">Experienced mentors dedicated to every student's success</p>
+    <div class="fac-grid">
+      <div class="fac-card sa-l d2">
+        <div class="fac-photo"><img src="rakshita.jpg" alt="Rakshita Garg" id="rkImg"/><div class="fac-fb" id="rkFb">RG</div><div class="fac-stripe"></div></div>
+        <div class="fac-body">
+          <h3>Rakshita Garg</h3><span class="fac-role">Lead Educator</span>
+          <p>Dedicated educator committed to helping students understand concepts clearly and build strong academic foundations.</p>
+          <div class="fac-pills"><span class="fpill">Concept Building</span><span class="fpill">Academic Support</span><span class="fpill">Student Mentoring</span></div>
+        </div>
+      </div>
+      <div class="fac-card sa-r d3">
+        <div class="fac-photo"><img src="vaibhav.jpg" alt="Vaibhav Garg" id="vbImg"/><div class="fac-fb" id="vbFb">VG</div><div class="fac-stripe"></div></div>
+        <div class="fac-body">
+          <h3>Vaibhav Garg</h3><span class="fac-role">Senior Mentor</span>
+          <p>Passionate mentor focused on guiding students towards academic success with effective and engaging teaching methods.</p>
+          <div class="fac-pills"><span class="fpill">Exam Strategy</span><span class="fpill">Result Focused</span><span class="fpill">Doubt Clearing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="section courses-sec" id="courses">
+  <div class="container">
+    <div class="tag sa">What We Offer</div>
+    <h2 class="heading sa d1">Our <em>Courses</em></h2>
+    <p class="subtext sa d2">Comprehensive tuition from Class 1 to Class 12 across all streams</p>
+    <div class="c-grid">
+      <div class="ccard sa d2"><div class="ccard-glow"></div><div class="cbadge">Classes 1–5</div><div class="cicon">🌱</div><h3>Primary</h3><p>Building a strong foundation through fun, engaging lessons.</p><ul class="clist"><li>All Subjects</li><li>Activity-Based Learning</li><li>Regular Assessments</li></ul><a href="#admission" class="clink">Enquire →</a></div>
+      <div class="ccard sa d3"><div class="ccard-glow"></div><div class="cbadge">Classes 6–8</div><div class="cicon">📘</div><h3>Middle School</h3><p>Strengthening concepts and developing analytical thinking skills.</p><ul class="clist"><li>All Subjects</li><li>Concept-Based Teaching</li><li>Weekly Tests</li></ul><a href="#admission" class="clink">Enquire →</a></div>
+      <div class="ccard sa d4"><div class="ccard-glow"></div><div class="cbadge">Classes 9–10</div><div class="cicon">🎯</div><h3>Senior School</h3><p>Targeted board exam preparation with intensive practice.</p><ul class="clist"><li>All Subjects</li><li>Board Exam Focus</li><li>Sample Papers & Mocks</li></ul><a href="#admission" class="clink">Enquire →</a></div>
+      <div class="ccard sa d5"><div class="ccard-glow"></div><div class="cbadge">Classes 11–12</div><div class="cicon">🏆</div><h3>Senior Secondary</h3><p>Stream-specific guidance across all streams.</p><ul class="clist"><li>Humanities / Commerce / Science</li><li>Subject Specialists</li><li>Competitive Exam Ready</li></ul><a href="#admission" class="clink">Enquire →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section why-sec" id="why">
+  <div class="container">
+    <div class="tag sa">Our Edge</div>
+    <h2 class="heading sa d1">Why Choose <em>Samarth Classes?</em></h2>
+    <div class="why-grid">
+      <div class="wcard sa d1"><span class="wicon">👥</span><h4>Small Batch Size</h4><p>Limited students per batch ensures focused teaching and no student is ever left behind.</p></div>
+      <div class="wcard sa d2"><span class="wicon">🎓</span><h4>Personal Attention</h4><p>Every student receives individual guidance, tailored support, and timely feedback.</p></div>
+      <div class="wcard sa d3"><span class="wicon">📝</span><h4>Regular Tests & Worksheets</h4><p>Frequent assessments monitor progress and keep students practice-ready at all times.</p></div>
+      <div class="wcard sa d4"><span class="wicon">💡</span><h4>Concept-Based Teaching</h4><p>Deep understanding over rote learning — building knowledge that truly lasts.</p></div>
+      <div class="wcard sa d5"><span class="wicon">🗓️</span><h4>Exam Prep & Doubt Sessions</h4><p>Dedicated sessions to clear doubts and gear up for school examinations confidently.</p></div>
+      <div class="wcard sa d6"><span class="wicon">🌟</span><h4>Motivating Environment</h4><p>A friendly, encouraging atmosphere where students feel confident to ask and grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="section method-sec" id="methodology">
+  <div class="container">
+    <div class="mwrap">
+      <div class="sa-l">
+        <div class="tag">About Us</div>
+        <h2 class="heading">Our Teaching <em>Methodology</em></h2>
+        <p>At Samarth Classes, our purpose is simple — to help every student realise their full potential through a structured, caring, and result-oriented approach to learning.</p>
+        <div class="mlist">
+          <div class="mitem sa d1"><div class="mibox">🖥️</div><div><h5>Online &amp; Offline Modes</h5><p>Flexible learning through in-person and online classes to suit every schedule.</p></div></div>
+          <div class="mitem sa d2"><div class="mibox">🤝</div><div><h5>Personal Attention</h5><p>Individual progress tracking so every student gets exactly the guidance they need.</p></div></div>
+          <div class="mitem sa d3"><div class="mibox">📊</div><div><h5>Regular Tests</h5><p>Continuous testing and feedback cycles to identify gaps and reinforce learning.</p></div></div>
+          <div class="mitem sa d4"><div class="mibox">👶</div><div><h5>Small Batches</h5><p>Smaller class sizes create a more interactive environment where students grow faster.</p></div></div>
+        </div>
+      </div>
+      <div class="sa-r d2">
+        <div class="aim-box">
+          <div class="aim-h">Our Aim</div>
+          <p class="aim-p">To provide quality education with personal attention, ensuring every student achieves academic excellence and genuine confidence in their abilities.</p>
+          <div class="aim-pills">
+            <div class="apill"><span>📚</span>Learn</div>
+            <div class="apill"><span>🧠</span>Understand</div>
+            <div class="apill"><span>✅</span>Excel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDY MATERIAL -->
+<section class="section mat-sec" id="material">
+  <div class="container">
+    <div class="tag sa">Resources</div>
+    <h2 class="heading sa d1">Study Material <em>Provided</em></h2>
+    <p class="subtext sa d2">Everything students need to succeed — right in the classroom</p>
+    <div class="mat-grid">
+      <div class="mcard sa d1"><div class="micon">📄</div><h4>Worksheets</h4><p>Topic-wise worksheets for structured practice and thorough revision.</p></div>
+      <div class="mcard sa d2"><div class="micon">📋</div><h4>Sample Papers</h4><p>Past and model papers to simulate real exam conditions effectively.</p></div>
+      <div class="mcard sa d3"><div class="micon">📓</div><h4>Class Notes</h4><p>Concise, well-structured notes for easy understanding and quick revision.</p></div>
+      <div class="mcard sa d4"><div class="micon">❓</div><h4>MCQ Practice Sheets</h4><p>Multiple-choice sets to sharpen objective test-taking skills.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="section ach-sec" id="achievements">
+  <div class="container">
+    <div class="tag sa">Track Record</div>
+    <h2 class="heading sa d1">Our <em>Achievements</em></h2>
+    <div class="ach-wrap">
+      <div class="sa-l d2">
+        <p>Our students have consistently improved their academic performance through dedicated guidance and regular practice.</p>
+        <p>We take pride in helping students gain confidence, improve their results, and develop a strong learning attitude. The real measure of our success is when a student walks in with doubt and walks out with confidence.</p>
+      </div>
+      <div class="ach-badges sa-r d3">
+        <div class="abadge"><span class="anum">200+</span><span class="albl">Students Enrolled</span></div>
+        <div class="abadge"><span class="anum">30%</span><span class="albl">Average Score Improvement</span></div>
+        <div class="abadge"><span class="anum">100%</span><span class="albl">Dedicated Teaching</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gal-sec" id="gallery">
+  <div class="container">
+    <div class="tag sa">Moments</div>
+    <h2 class="heading sa d1">Our <em>Gallery</em></h2>
+    <p class="subtext sa d2">Memories from our classroom and beyond</p>
+    <div class="gal-grid">
+      <div class="gitem sa d1"><img src="gallery1.jpg" alt="Classroom"/><div class="gph"><span class="gph-icon">📷</span>gallery1.jpg</div><div class="gov"><span>Classroom Learning</span></div></div>
+      <div class="gitem sa d2"><img src="gallery2.jpg" alt="Study"/><div class="gph"><span class="gph-icon">📷</span>gallery2.jpg</div><div class="gov"><span>Group Study</span></div></div>
+      <div class="gitem sa d3"><img src="gallery3.jpg" alt="Test"/><div class="gph"><span class="gph-icon">📷</span>gallery3.jpg</div><div class="gov"><span>Mock Test</span></div></div>
+      <div class="gitem sa d4"><img src="gallery4.jpg" alt="Awards"/><div class="gph"><span class="gph-icon">📷</span>gallery4.jpg</div><div class="gov"><span>Award Ceremony</span></div></div>
+      <div class="gitem sa d5"><img src="gallery5.jpg" alt="Students"/><div class="gph"><span class="gph-icon">📷</span>gallery5.jpg</div><div class="gov"><span>Happy Students</span></div></div>
+      <div class="gitem sa d6"><img src="gallery6.jpg" alt="Activity"/><div class="gph"><span class="gph-icon">📷</span>gallery6.jpg</div><div class="gov"><span>Interactive Session</span></div></div>
+    </div>
+    <p class="gal-note">📸 Place photos in the same folder as this file: gallery1.jpg … gallery6.jpg</p>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section res-sec" id="results">
+  <div class="container">
+    <div class="tag sa">Success Stories</div>
+    <h2 class="heading sa d1">Our Toppers &amp; <em>Results</em></h2>
+    <p class="subtext sa d2">Real improvement, real confidence, real success</p>
+    <div class="res-grid">
+      <div class="rcard sa d1"><div class="rav">A</div><h4>Aarav Sharma</h4><div class="rcls">Class 10</div><div class="rscores"><div class="rb4">Before: <strong>58%</strong></div><div class="rarr">→</div><div class="raf">After: <strong>91%</strong></div></div><div class="rbar"><div class="rfill" data-to="91"></div></div><p class="rq">"Samarth Classes changed my approach to studying completely."</p></div>
+      <div class="rcard sa d2"><div class="rav">P</div><h4>Priya Verma</h4><div class="rcls">Class 8</div><div class="rscores"><div class="rb4">Before: <strong>62%</strong></div><div class="rarr">→</div><div class="raf">After: <strong>88%</strong></div></div><div class="rbar"><div class="rfill" data-to="88"></div></div><p class="rq">"The personal attention I received made all the difference."</p></div>
+      <div class="rcard sa d3"><div class="rav">R</div><h4>Rohan Gupta</h4><div class="rcls">Class 12 – Science</div><div class="rscores"><div class="rb4">Before: <strong>55%</strong></div><div class="rarr">→</div><div class="raf">After: <strong>89%</strong></div></div><div class="rbar"><div class="rfill" data-to="89"></div></div><p class="rq">"Concepts became so clear — I stopped fearing exams."</p></div>
+      <div class="rcard sa d4"><div class="rav">M</div><h4>Meera Singh</h4><div class="rcls">Class 6</div><div class="rscores"><div class="rb4">Before: <strong>60%</strong></div><div class="rarr">→</div><div class="raf">After: <strong>90%</strong></div></div><div class="rbar"><div class="rfill" data-to="90"></div></div><p class="rq">"My daughter's confidence has grown tremendously."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section test-sec" id="testimonials">
+  <div class="container">
+    <div class="tag sa">Parent Reviews</div>
+    <h2 class="heading sa d1">What <em>Parents Say</em></h2>
+    <div class="test-grid">
+      <div class="tcard sa d1"><div class="tstars">★★★★★</div><p>"My son was struggling in Maths before joining Samarth Classes. Within 3 months he's scoring better and actually enjoys the subject. The teachers truly care."</p><div class="tauth"><div class="tav">S</div><div><strong>Sunita Mehta</strong><span>Parent of Class 7 Student</span></div></div></div>
+      <div class="tcard sa d2"><div class="tstars">★★★★★</div><p>"What sets Samarth apart is the small batches. My daughter gets direct attention from the teacher. Her marks improved from 65% to 87% in one term."</p><div class="tauth"><div class="tav">R</div><div><strong>Rajesh Kumar</strong><span>Parent of Class 9 Student</span></div></div></div>
+      <div class="tcard sa d3"><div class="tstars">★★★★★</div><p>"Vaibhav sir and Rakshita ma'am are exceptional. They don't just teach — they motivate. My child looks forward to every class. Highly recommend!"</p><div class="tauth"><div class="tav">A</div><div><strong>Anjali Sharma</strong><span>Parent of Class 5 Student</span></div></div></div>
+      <div class="tcard sa d4"><div class="tstars">★★★★★</div><p>"The study material — worksheets, sample papers, notes — is excellent. My son's board preparation was thorough and results were beyond expectations."</p><div class="tauth"><div class="tav">V</div><div><strong>Vikram Agarwal</strong><span>Parent of Class 10 Student</span></div></div></div>
+      <div class="tcard sa d5"><div class="tstars">★★★★★</div><p>"Flexibility of online and offline classes helped us greatly. Even during busy schedules, my daughter never missed a class. Remarkable support."</p><div class="tauth"><div class="tav">P</div><div><strong>Pooja Nair</strong><span>Parent of Class 11 Student</span></div></div></div>
+      <div class="tcard sa d6"><div class="tstars">★★★★★</div><p>"Regular tests and doubt-clearing sessions make all the difference. My son no longer panics before exams. Confident and performing brilliantly."</p><div class="tauth"><div class="tav">D</div><div><strong>Deepak Joshi</strong><span>Parent of Class 12 Student</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSION FORM -->
+<section class="section adm-sec" id="admission">
+  <div class="container">
+    <div class="tag sa">Join Us</div>
+    <h2 class="heading sa d1">Admission &amp; <em>Enquiry Form</em></h2>
+    <p class="subtext sa d2">Fill in the details below and we'll get back to you shortly</p>
+    <div class="form-card sa d2">
+      <form id="admForm" novalidate>
+        <div class="fsh">Student Information</div>
+        <div class="frow two">
+          <div class="fg"><label for="sName">Student Name <span class="req">*</span></label><input type="text" id="sName" name="studentName" placeholder="Full name" required/></div>
+          <div class="fg"><label for="dob">Date of Birth <span class="req">*</span></label><input type="date" id="dob" name="dob" required/></div>
+        </div>
+        <div class="frow two">
+          <div class="fg"><label for="cls">Class Applying For <span class="req">*</span></label>
+            <select id="cls" name="classApplying" required>
+              <option value="">Select class</option>
+              <option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option>
+              <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option>
+              <option>Class 11 – Humanities</option><option>Class 11 – Commerce</option><option>Class 11 – Science</option>
+              <option>Class 12 – Humanities</option><option>Class 12 – Commerce</option><option>Class 12 – Science</option>
+            </select>
+          </div>
+          <div class="fg"><label for="school">School Name <span class="req">*</span></label><input type="text" id="school" name="schoolName" placeholder="Current school" required/></div>
+        </div>
+        <div class="fg">
+          <label for="subjects">Subjects Required <span class="req">*</span></label>
+          <textarea id="subjects" name="subjects" rows="3" placeholder="e.g. Maths, Science, English — or write All Subjects" required></textarea>
+          <span class="hint">Mention the subjects your child needs help with</span>
+        </div>
+        <div class="fsh">Parent / Guardian Information</div>
+        <div class="frow two">
+          <div class="fg"><label for="pName">Parent / Guardian Name <span class="req">*</span></label><input type="text" id="pName" name="parentName" placeholder="Full name" required/></div>
+          <div class="fg"><label for="ph">Contact Number <span class="req">*</span></label><input type="tel" id="ph" name="contact" placeholder="Primary number" required/></div>
+        </div>
+        <div class="frow two">
+          <div class="fg"><label for="ph2">Alternate Contact Number</label><input type="tel" id="ph2" name="altContact" placeholder="Optional"/></div>
+          <div class="fg"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="your@email.com"/></div>
+        </div>
+        <div class="fsh">Additional Information</div>
+        <div class="frow two">
+          <div class="fg"><label for="perf">Previous Academic Performance</label><input type="text" id="perf" name="prevPerf" placeholder="e.g. 75% or A Grade"/></div>
+          <div class="fg"><label for="concern">Any Specific Learning Concern</label><input type="text" id="concern" name="concern" placeholder="Optional"/></div>
+        </div>
+        <div class="fg">
+          <label>Preferred Batch Timing</label>
+          <div class="chk-grp">
+            <label class="clbl"><input type="radio" name="batchTiming" value="Morning"/> Morning</label>
+            <label class="clbl"><input type="radio" name="batchTiming" value="Afternoon"/> Afternoon</label>
+            <label class="clbl"><input type="radio" name="batchTiming" value="Evening"/> Evening</label>
+          </div>
+        </div>
+        <div class="fg"><label for="msg">Message / Query</label><textarea id="msg" name="message" rows="4" placeholder="Write your query or any additional information here..."></textarea></div>
+        <div class="cfm-wrap">
+          <label class="cfm-lbl"><input type="checkbox" id="cfm" name="confirm" required/> I confirm that the above information is correct.</label>
+        </div>
+        <div id="fstat" class="fstat"></div>
+        <button type="submit" class="btn btn-navy subtn" id="subBtn">
+          <span id="btnTxt">Submit Enquiry →</span>
+          <span id="btnLd" style="display:none">Sending…</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section ct-sec" id="contact">
+  <div class="container">
+    <div class="ct-wrap">
+      <div class="sa-l">
+        <div class="tag">Get In Touch</div>
+        <h2 class="heading">Contact <em>Us</em></h2>
+        <p>We'd love to hear from you. Reach out on any of the numbers below and we'll be happy to answer all your questions.</p>
+        <div class="ct-items">
+          <div class="ctitem sa d1"><div class="cticon">📞</div><div><strong>Primary</strong><a href="tel:+919212549537">9212 5495 37</a></div></div>
+          <div class="ctitem sa d2"><div class="cticon">📱</div><div><strong>Secondary</strong><a href="tel:+918744040730">8744 0407 30</a></div></div>
+        </div>
+      </div>
+      <div class="sa-r d2">
+        <div class="cta-box">
+          <h3>Ready to Enrol?</h3>
+          <p>Give your child the academic edge they deserve. Join Samarth Classes today.</p>
+          <a href="#admission" class="btn btn-gold">Fill Enquiry Form</a>
+          <div class="cdiv">or call us directly</div>
+          <a href="tel:+919212549537" class="btn btn-outline">📞 Call Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ftlogo"><div class="lsq">SC</div><span>Samarth Classes</span></div>
+        <p>Shaping Young Minds for a Bright Future. Quality education with personal attention.</p>
+      </div>
+      <div class="ftcol">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li><li><a href="#courses">Courses</a></li>
+          <li><a href="#facilitators">Our Educators</a></li><li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#results">Results</a></li><li><a href="#admission">Admission</a></li>
+        </ul>
+      </div>
+      <div class="ftcol">
+        <h5>Contact</h5>
+        <p><a href="tel:+919212549537">📞 9212 5495 37</a></p>
+        <p><a href="tel:+918744040730">📱 8744 0407 30</a></p>
+      </div>
+    </div>
+    <div class="ft-bot"><p>© 2025 Samarth Classes. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+// ── IMAGE FALLBACKS ──
+function fb(imgId, fbId){
+  const img=document.getElementById(imgId), el=document.getElementById(fbId);
+  if(!img||!el) return;
+  const show=()=>{img.style.display='none';el.style.display='flex'};
+  img.addEventListener('error',show);
+  if(img.complete&&!img.naturalWidth) show();
+}
+fb('logoImg','logoFb'); fb('rkImg','rkFb'); fb('vbImg','vbFb');
+document.querySelectorAll('.gitem img').forEach(img=>{
+  const ph=img.nextElementSibling;
+  const show=()=>{img.style.display='none';if(ph)ph.style.display='flex'};
+  img.addEventListener('error',show);
+  if(img.complete&&!img.naturalWidth) show();
+});
+
+// ── NAVBAR ──
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>nb.classList.toggle('sc',window.scrollY>60),{passive:true});
+
+// ── MOBILE MENU ──
+const hbg=document.getElementById('hbg'), nul=document.getElementById('nul');
+hbg.addEventListener('click',()=>{
+  nul.classList.toggle('open');
+  document.body.style.overflow=nul.classList.contains('open')?'hidden':'';
+});
+nul.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  nul.classList.remove('open'); document.body.style.overflow='';
+}));
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-78,behavior:'smooth'});}
+  });
+});
+
+// ── SCROLL ANIMATIONS (IntersectionObserver — smooth & GPU-accelerated) ──
+const animEls = document.querySelectorAll('.sa,.sa-l,.sa-r,.sa-s');
+
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('v');
+      revealObs.unobserve(entry.target); // stop watching once revealed
+    }
+  });
+}, {
+  threshold: 0.08,          // trigger when 8% of element is visible
+  rootMargin: '0px 0px -40px 0px'  // trigger slightly before reaching element
+});
+
+animEls.forEach(el => revealObs.observe(el));
+
+// Immediately reveal anything already in the viewport on page load
+requestAnimationFrame(() => {
+  animEls.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight + 10) el.classList.add('v');
+  });
+});
+
+// Hard fallback: force everything visible after 1.5s
+setTimeout(() => animEls.forEach(el => el.classList.add('v')), 1500);
+
+// ── STAT COUNTERS ──
+let counted = false;
+function runCounters(){
+  if(counted) return;
+  const box = document.querySelector('.stats-grid');
+  if(!box) return;
+  const r = box.getBoundingClientRect();
+  if(r.top < window.innerHeight - 50){
+    counted = true;
+    box.querySelectorAll('.snum[data-target]').forEach(n=>{
+      const target=+n.dataset.target, suf=n.dataset.suf||'';
+      let s=null;
+      const step=ts=>{
+        if(!s)s=ts;
+        const p=Math.min((ts-s)/1500,1),e=1-Math.pow(1-p,3);
+        n.textContent=Math.floor(e*target)+suf;
+        if(p<1)requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }
+}
+window.addEventListener('scroll',runCounters,{passive:true});
+setTimeout(runCounters,400);
+
+// ── RESULT BAR ANIMATION ──
+const barDone = new Set();
+function runBars(){
+  document.querySelectorAll('.rcard').forEach(card=>{
+    if(barDone.has(card)) return;
+    if(card.getBoundingClientRect().top < window.innerHeight - 50){
+      barDone.add(card);
+      card.querySelectorAll('.rfill').forEach(f=>{ f.style.width=f.dataset.to+'%'; });
+    }
+  });
+}
+window.addEventListener('scroll',runBars,{passive:true});
+setTimeout(runBars,600);
+
+// ── GALLERY LIGHTBOX ──
+document.querySelectorAll('.gitem').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const img=item.querySelector('img');
+    if(!img||!img.naturalWidth) return;
+    const ov=document.createElement('div');
+    Object.assign(ov.style,{position:'fixed',inset:'0',background:'rgba(0,0,0,.92)',display:'flex',alignItems:'center',justifyContent:'center',zIndex:'9999',cursor:'zoom-out'});
+    const pi=document.createElement('img');
+    pi.src=img.src;
+    Object.assign(pi.style,{maxWidth:'90vw',maxHeight:'88vh',borderRadius:'14px',objectFit:'contain'});
+    ov.appendChild(pi);
+    document.body.appendChild(ov);
+    ov.addEventListener('click',()=>ov.remove());
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')ov.remove();},{once:true});
+  });
+});
+
+// ── FORM SUBMISSION ──
+// ACTIVATE EMAIL: sign up free at formspree.io
+// Add gargtisha469@gmail.com as recipient → copy Form ID → replace below
+const FORMSPREE='mwvrrlad';
+
+const admForm=document.getElementById('admForm');
+const fstat=document.getElementById('fstat');
+
+admForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  let ok=true;
+  admForm.querySelectorAll('[required]').forEach(f=>{
+    f.classList.remove('err');
+    if(!f.value.trim()){f.classList.add('err');ok=false;}
+  });
+  if(!ok){setStat('Please fill in all required fields marked with *.','er');return;}
+  setLd(true);
+  try{
+    if(FORMSPREE==='YOUR_FORMSPREE_ID'){
+      await new Promise(r=>setTimeout(r,1200));
+      setStat('✅ Enquiry submitted! We will contact you shortly. (Add your Formspree ID in the script to activate real email delivery.)','ok');
+      admForm.reset();
+    }else{
+      const r=await fetch(`https://formspree.io/f/${FORMSPREE}`,{method:'POST',body:new FormData(admForm),headers:{Accept:'application/json'}});
+      if(r.ok){setStat('✅ Enquiry submitted! We will get back to you within 24 hours.','ok');admForm.reset();}
+      else throw new Error();
+    }
+  }catch{setStat('❌ Something went wrong. Please call us at 9212 5495 37.','er');}
+  finally{setLd(false);}
+});
+function setLd(l){
+  document.getElementById('subBtn').disabled=l;
+  document.getElementById('btnTxt').style.display=l?'none':'inline';
+  document.getElementById('btnLd').style.display=l?'inline':'none';
+}
+function setStat(m,t){fstat.textContent=m;fstat.className='fstat '+t;fstat.scrollIntoView({behavior:'smooth',block:'nearest'});}
+admForm.querySelectorAll('input,select,textarea').forEach(f=>f.addEventListener('input',()=>f.classList.remove('err')));
+</script>
+</body>
+</html>
